@@ -2,15 +2,15 @@
 pragma solidity ^0.8.0;
 
 contract User {
-    string private name;
+    mapping (address => string) name;
 
     // get name of the user
     function getName() public view returns (string memory){
-        return name;
+        return name[msg.sender];
     }
 
     // retrieve or show the name of user
     function setName(string memory nM) public {
-        name = nM;
+        name[msg.sender] = nM;
     }
 }
