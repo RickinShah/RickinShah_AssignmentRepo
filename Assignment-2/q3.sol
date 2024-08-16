@@ -2,15 +2,15 @@
 pragma solidity ^0.8.0;
 
 contract GreetingMessage {
-    string private greetingMessage;
+    mapping (address => string) public greetingMessage;
 
     // set greeting message by user
     function setGreetingMessage(string memory sM) public {
-        greetingMessage = sM;
+        greetingMessage[msg.sender] = sM;
     }
 
     // retrieve/show greeting message
     function getGreetingMessage() public view returns (string memory) {
-        return greetingMessage;
+        return greetingMessage[msg.sender];
     }
 }
