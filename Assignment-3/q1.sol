@@ -34,7 +34,7 @@ contract Lottery {
     }
 
     // only owner can pick winner
-    function pickWinner() public onlyOwner returns {
+    function pickWinner() public onlyOwner {
         require(players.length > 0, "No players have entered the lottery.");
         
         // get a random number and modulus it with number of players so we can get a valid index
